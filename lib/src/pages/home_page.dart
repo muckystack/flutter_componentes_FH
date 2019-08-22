@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_componentes_fh/src/providers/menu_provider.dart';
+import 'package:flutter_componentes_fh/src/pages/alert_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
 
         return ListView(
-          children: _listaItem(snapshot.data)
+          children: _listaItem(snapshot.data, context)
         );
 
       },
@@ -34,7 +35,7 @@ class HomePage extends StatelessWidget {
 
   }
 
-  List<Widget> _listaItem(List<dynamic> data) {
+  List<Widget> _listaItem(List<dynamic> data, context) {
 
     final List<Widget> opciones = [];
 
@@ -46,6 +47,15 @@ class HomePage extends StatelessWidget {
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blue),
         onTap: () {
           
+          // Navegacion a una nueva pantalla
+          final route = MaterialPageRoute(
+            // Se crea una función que tiene el context (el cual contiene información global de la aplicación) y la ventana a la que se quiere navegar
+            builder: (context) => AlertPage()
+          );
+
+          // Navegación
+          Navigator.push(context, route);
+
         },
       );
 
