@@ -7,10 +7,11 @@ class _MenuProvider {
   List<dynamic> opciones = [];
 
   _MenuProvider() {
-    cargarData();
+    // cargarData();
   }
 
-  cargarData() async {
+  // Retirnamos un future de list dynamic
+  Future<List<dynamic>> cargarData() async {
     // Leo el archivo json
     final resp = await rootBundle.loadString('data/menu_opts.json');
 
