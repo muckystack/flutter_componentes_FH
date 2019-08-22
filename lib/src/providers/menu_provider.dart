@@ -17,7 +17,7 @@ class _MenuProvider {
 
     Map dataMap = json.decode(resp);
 
-    print(dataMap['rutas']);
+    // print(dataMap['rutas']);
 
     opciones = dataMap['rutas'];
 
