@@ -32,10 +32,9 @@ class HomePageTemp extends StatelessWidget {
         title: Text(opt),
       );
 
-      // Inserto el widget a mi lista de widgets
-      lista.add(tempWidget);
-      // Inserto un divider a mi lista de widgets
-      lista.add(Divider());
+      // OPERADOR DE CASCADA
+      // Inserto el widget y Divider a mi lista de widgets
+      lista..add(tempWidget)..add(Divider());
 
     }
 
