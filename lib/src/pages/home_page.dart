@@ -48,13 +48,7 @@ class HomePage extends StatelessWidget {
         onTap: () {
           
           // Navegacion a una nueva pantalla
-          final route = MaterialPageRoute(
-            // Se crea una función que tiene el context (el cual contiene información global de la aplicación) y la ventana a la que se quiere navegar
-            builder: (context) => AlertPage()
-          );
-
-          // Navegación
-          Navigator.push(context, route);
+          Navigator.pushNamed(context, opt['ruta']);
 
         },
       );
