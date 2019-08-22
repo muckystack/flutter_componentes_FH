@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HomePageTemp extends StatelessWidget {
-  const HomePageTemp({Key key}) : super(key: key);
+  // const HomePageTemp({Key key}) : super(key: key);
+
+  final opciones = ['Uno','Dos','Tres','Cuatro','Cinco'];
 
   @override
   Widget build(BuildContext context) {
@@ -10,20 +12,33 @@ class HomePageTemp extends StatelessWidget {
         title: Text('Componentes Temp'),
       ),
       body: ListView(
-        children: <Widget>[
-          ListTile(
-            title: Text('List title')
-          ),
-          Divider(),
-          ListTile(
-            title: Text('List title')
-          ),
-          Divider(),
-          ListTile(
-            title: Text('List title')
-          ),
-        ],
+        // Mando llamar mi metodo para tener los widgets
+        children: _crearItems()
       ),
     );
+  }
+
+  // Metodo que regresa una lsita de widgets
+  List<Widget> _crearItems() {
+
+    // Creo una lista de widgets dinamica, ya que no le paso el tamaño de mi lista
+    List<Widget> lista = List<Widget>();
+
+    // Creo un for que recorre el arreglo global de opciones
+    for (String opt in opciones) {
+      
+      // Creo mi widget con los valores de opt
+      final tempWidget = ListTile(
+        title: Text(opt),
+      );
+
+      // Inserto el widget a mi lista de widgets
+      lista.add(tempWidget);
+      // Inserto un divider a mi lista de widgets
+      lista.add(Divider());
+
+    }
+
+    return lista;
   }
 }
