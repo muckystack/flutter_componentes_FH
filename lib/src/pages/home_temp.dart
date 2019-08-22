@@ -13,7 +13,8 @@ class HomePageTemp extends StatelessWidget {
       ),
       body: ListView(
         // Mando llamar mi metodo para tener los widgets
-        children: _crearItems()
+        // children: _crearItems()
+        children: _crearItemsCorta()
       ),
     );
   }
@@ -39,5 +40,34 @@ class HomePageTemp extends StatelessWidget {
     }
 
     return lista;
+  }
+
+  
+  // Metodo map
+  List<Widget> _crearItemsCorta() {
+
+    // Se retorna una nueva lista que pasa por la función que se define en map
+    return opciones.map((item) {
+
+      return Column(
+        children: <Widget>[
+          ListTile(
+            title: Text(item + '!'),
+            // Es como la descripción de la lista
+            subtitle: Text('Cualquier cosa'),
+            // Es un icono que se posiciona al inicio de la lista
+            leading: Icon(Icons.account_balance_wallet),
+            // Es un icono que se posiciona al final de la lista
+            trailing: Icon(Icons.keyboard_arrow_right),
+            // Función de clic
+            onTap: () {},
+          ),
+          Divider(),
+        ],
+      );
+
+    }).toList();
+
+    // Con 'toList()' combertimos a lista el resultado
   }
 }
