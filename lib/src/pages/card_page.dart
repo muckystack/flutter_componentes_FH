@@ -23,6 +23,12 @@ class CardPage extends StatelessWidget {
   // Targeta 1
   Widget _cardTipo1() {
     return Card(
+      // Afecta la sombra de la targeta
+      elevation: 10.0,
+      // Afecta la redondes de los bordes
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0)
+      ),
       child: Column(
         children: <Widget>[
           ListTile(
