@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
+
+
 
 class AnimatedContainerPage extends StatefulWidget {
   AnimatedContainerPage({Key key}) : super(key: key);
@@ -38,10 +41,20 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
   }
 
   void _cambiarForma() {
+
+    // Generamos número de manera aleatoria
+    final random = Random();
+
     setState(() {
-      _width = 10.0;
-      _height = 10.0;
-      _color = Colors.red;
+      _width = random.nextInt(300).toDouble();
+      _height = random.nextInt(300).toDouble();
+      _color = Color.fromRGBO(
+        random.nextInt(255),
+        random.nextInt(255),
+        random.nextInt(255),
+        1
+      );
+      _borderRadius = BorderRadius.circular(random.nextInt(100).toDouble());
     });
   }
 }
