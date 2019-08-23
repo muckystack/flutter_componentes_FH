@@ -30,7 +30,11 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
             borderRadius: _borderRadius,
             color: _color
           ),
-          duration: Duration(milliseconds: 444),
+          // Controla la duración de la animción
+          duration: Duration(milliseconds: 555),
+          // Controla el tipo de animación que se quiere.
+          // Este recurso se encuentra en https://api.flutter.dev/flutter/animation/Curves-class.html
+          curve: Curves.easeOutQuart,
         ),
       ),
 
