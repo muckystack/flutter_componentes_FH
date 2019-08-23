@@ -86,7 +86,7 @@ class _InputPageState extends State<InputPage> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.0)
         ),
-        counter: Text('Letras ${_nombre.length}'),
+        counter: Text('Letras ${_email.length}'),
         // Texto de sugerencia
         hintText: 'Email',
         labelText: 'Email',
@@ -110,16 +110,16 @@ class _InputPageState extends State<InputPage> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.0)
         ),
-        counter: Text('Letras ${_nombre.length}'),
+        // counter: Text('Letras ${_nombre.length}'),
         // Texto de sugerencia
         hintText: 'Password',
         labelText: 'Password',
         suffixIcon: Icon(Icons.lock_open),
         icon: Icon(Icons.lock)
       ),
-      onChanged: (valor) => setState(() {
-          _email = valor;
-      }),
+      // onChanged: (valor) => setState(() {
+      //     _email = valor;
+      // }),
     );
   }
 
@@ -134,7 +134,7 @@ class _InputPageState extends State<InputPage> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20.0)
         ),
-        counter: Text('Letras ${_nombre.length}'),
+        counter: Text('Letras ${_fecha.length}'),
         // Texto de sugerencia
         hintText: 'Fecha de nacimiento',
         labelText: 'Fecha de nacimiento',
