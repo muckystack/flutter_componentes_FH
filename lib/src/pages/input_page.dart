@@ -9,6 +9,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
 
   String _nombre = '';
+  String _email = '';
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,10 @@ class _InputPageState extends State<InputPage> {
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
         children: <Widget>[
           _crearInput(),
+          Divider(),
+          _crearEmail(),
+          Divider(),
+          _crearPassword(),
           Divider(),
           _crearPersona(),
         ],
@@ -59,11 +64,62 @@ class _InputPageState extends State<InputPage> {
 
   }
 
+  Widget _crearEmail() {
+    // El textfield trabaja de manera independiente
+    return TextField(
+      // Define el tipo de input que sera
+      keyboardType: TextInputType.emailAddress,
+      // Incluye mas decoraciones para el input
+      decoration: InputDecoration(
+        // Modificaciones del borde
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0)
+        ),
+        counter: Text('Letras ${_nombre.length}'),
+        // Texto de sugerencia
+        hintText: 'Email',
+        labelText: 'Email',
+        suffixIcon: Icon(Icons.alternate_email),
+        icon: Icon(Icons.email)
+      ),
+      onChanged: (valor) => setState(() {
+          _email = valor;
+      }),
+    );
+  }
+
+  Widget _crearPassword() {
+    // El textfield trabaja de manera independiente
+    return TextField(
+      // Crea mi input con la información oculta
+      obscureText: true,
+      // Incluye mas decoraciones para el input
+      decoration: InputDecoration(
+        // Modificaciones del borde
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0)
+        ),
+        counter: Text('Letras ${_nombre.length}'),
+        // Texto de sugerencia
+        hintText: 'Password',
+        labelText: 'Password',
+        suffixIcon: Icon(Icons.lock_open),
+        icon: Icon(Icons.lock)
+      ),
+      onChanged: (valor) => setState(() {
+          _email = valor;
+      }),
+    );
+  }
+
   Widget _crearPersona() {
 
     return ListTile(
       title: Text('Nombre es: $_nombre'),
+      subtitle: Text('Email es: $_email'),
     );
 
   }
+
 }
+
