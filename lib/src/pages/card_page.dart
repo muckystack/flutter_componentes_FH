@@ -60,7 +60,7 @@ class CardPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           // Image(
-          //   image: NetworkImage(url),
+          //   image: NetworkImage('https://www.365imagenesbonitas.com/wp-content/uploads/2014/07/El-tulipan.jpg'),
           // ),
           Container(
             padding: EdgeInsets.all(10.0),
