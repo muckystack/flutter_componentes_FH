@@ -23,13 +23,14 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
         title: Text('Animated Container'),
       ),
       body: Center(
-        child: Container(
+        child: AnimatedContainer(
           width: _width,
           height: _height,
           decoration: BoxDecoration(
             borderRadius: _borderRadius,
             color: _color
           ),
+          duration: Duration(milliseconds: 444),
         ),
       ),
 
