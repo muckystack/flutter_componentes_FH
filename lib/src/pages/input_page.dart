@@ -10,6 +10,10 @@ class _InputPageState extends State<InputPage> {
 
   String _nombre = '';
   String _email = '';
+  String _fecha = '';
+
+  // Permite editar el contendio de un input
+  TextEditingController _inputFieldDateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +30,8 @@ class _InputPageState extends State<InputPage> {
           _crearEmail(),
           Divider(),
           _crearPassword(),
+          Divider(),
+          _crearFecha(context),
           Divider(),
           _crearPersona(),
         ],
@@ -61,7 +67,6 @@ class _InputPageState extends State<InputPage> {
         // print(valor);
       },
     );
-
   }
 
   Widget _crearEmail() {
@@ -112,6 +117,51 @@ class _InputPageState extends State<InputPage> {
     );
   }
 
+  Widget _crearFecha(BuildContext context) {
+    // El textfield trabaja de manera independiente
+    return TextField(
+      enableInteractiveSelection: false,
+      controller: _inputFieldDateController,
+      // Incluye mas decoraciones para el input
+      decoration: InputDecoration(
+        // Modificaciones del borde
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0)
+        ),
+        counter: Text('Letras ${_nombre.length}'),
+        // Texto de sugerencia
+        hintText: 'Fecha de nacimiento',
+        labelText: 'Fecha de nacimiento',
+        suffixIcon: Icon(Icons.calendar_view_day),
+        icon: Icon(Icons.calendar_today)
+      ),
+      onTap: () {
+
+        FocusScope.of(context).requestFocus(new FocusNode());
+        _selectDate(context);
+
+      },
+    );
+  }
+
+  _selectDate(BuildContext context) async {
+
+    DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: new DateTime.now(),
+      firstDate: new DateTime(2018),
+      lastDate: new DateTime(2025),
+    );
+
+    if(picked != null) {
+      setState(() {
+        _fecha = picked.toString();
+        _inputFieldDateController.text = _fecha;
+      });
+    }
+
+  }
+
   Widget _crearPersona() {
 
     return ListTile(
@@ -120,6 +170,7 @@ class _InputPageState extends State<InputPage> {
     );
 
   }
+
 
 }
 
