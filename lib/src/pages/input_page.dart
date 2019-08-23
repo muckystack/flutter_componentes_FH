@@ -170,15 +170,25 @@ class _InputPageState extends State<InputPage> {
   }
 
   Widget _crearDropDown() {
-    return DropdownButton(
-      value: _opcionSeleccionada,
-      items: getOpcionesDropDown(),
-      onChanged: (opt) {
-        setState(() {
-          _opcionSeleccionada = opt;
-        });
-      },
+    return Row(
+      children: <Widget>[
+        Icon(Icons.select_all),
+        SizedBox(width: 30.0,),
+        Expanded(
+          child:  DropdownButton(
+            value: _opcionSeleccionada,
+            items: getOpcionesDropDown(),
+            onChanged: (opt) {
+              setState(() {
+                _opcionSeleccionada = opt;
+              });
+            },
+          ),
+        )
+      ],
     );
+    
+    
   }
 
   List<DropdownMenuItem<String>> getOpcionesDropDown() {
@@ -203,6 +213,7 @@ class _InputPageState extends State<InputPage> {
     return ListTile(
       title: Text('Nombre es: $_nombre'),
       subtitle: Text('Email es: $_email'),
+      trailing: Text(_opcionSeleccionada),
     );
 
   }
