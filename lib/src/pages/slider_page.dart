@@ -19,7 +19,8 @@ class _SliderPageState extends State<SliderPage> {
         padding: EdgeInsets.only(top: 50.0),
         child: Column(
           children: <Widget>[
-            _crearSlider()
+            _crearSlider(),
+            Expanded(child: _crearImagen())
           ],
         ),
       ),
@@ -36,12 +37,20 @@ class _SliderPageState extends State<SliderPage> {
       min: 0.0,
       max: 100.0,
       // Crea divisiones de valor en el Slider
-      divisions: 10,
+      // divisions: 10,
       onChanged: (valor) {
         setState(() {
           _valorSlider = valor;
         });
       },
+    );
+  }
+
+  Widget _crearImagen() {
+    return Image(
+      image: NetworkImage('http://mouse.latercera.com/wp-content/uploads/2019/03/lee.jpg'),
+      width: _valorSlider,
+      fit: BoxFit.contain,
     );
   }
 }
