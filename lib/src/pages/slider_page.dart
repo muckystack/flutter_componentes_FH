@@ -37,7 +37,7 @@ class _SliderPageState extends State<SliderPage> {
       min: 0.0,
       max: 100.0,
       // Crea divisiones de valor en el Slider
-      // divisions: 10,
+      divisions: 100,
       onChanged: (valor) {
         setState(() {
           _valorSlider = valor;
