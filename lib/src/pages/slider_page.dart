@@ -50,6 +50,7 @@ class _SliderPageState extends State<SliderPage> {
     return Image(
       image: NetworkImage('http://mouse.latercera.com/wp-content/uploads/2019/03/lee.jpg'),
       width: _valorSlider,
+      // Control para que no se deforme la imagen
       fit: BoxFit.contain,
     );
   }
